@@ -16,15 +16,15 @@ class EntityType:
 
     def __repr__(self):
         s = self.name
-        s += '('
+        s += "("
         for k, v in sorted(self.__dict__.items(), key=lambda x: x[0]):
-            if k in ['name', 'trainable_units']:
+            if k in ["name", "trainable_units"]:
                 continue
             if not v or v == getattr(self.__class__, k, None):
                 continue
             s += f"{k}={v}"
             s += ", "
-        if s[-1] != '(':
+        if s[-1] != "(":
             s = s[:-2]
         s += ")"
         return s
@@ -53,15 +53,15 @@ class Entity:
 
     def __repr__(self):
         s = self.type.name
-        s += '('
+        s += "("
         for k, v in sorted(self.__dict__.items(), key=lambda x: x[0]):
-            if k in ['type']:
+            if k in ["type"]:
                 continue
             if not v or v == getattr(self.__class__, k, None):
                 continue
             s += f"{k}={v}"
             s += ", "
-        if s[-1] != '(':
+        if s[-1] != "(":
             s = s[:-2]
         s += ")"
         return s
@@ -104,4 +104,3 @@ class VillagerTask(Enum):
 class Villager(Unit):
     task: VillagerTask = VillagerTask.IDLE
     target_building: Building = None
-

@@ -48,4 +48,3 @@ class Player:
     @property
     def pop(self):
         return sum(u.type.population_occupied for u in self.units)
-

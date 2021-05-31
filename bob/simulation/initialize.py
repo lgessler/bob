@@ -14,15 +14,10 @@ def init_dutch_player_state() -> Player:
         xp_on_completion=10.0,
         population_occupied=1,
         max_training_batch_size=1,
-        limit=50
+        limit=50,
     )
     envoy_type = E.UnitType(
-        "envoy",
-        build_time=15.0,
-        food_cost=50.0,
-        xp_on_completion=5.0,
-        population_occupied=1,
-        limit=5
+        "envoy", build_time=15.0, food_cost=50.0, xp_on_completion=5.0, population_occupied=1, limit=5
     )
 
     # building types
@@ -33,16 +28,10 @@ def init_dutch_player_state() -> Player:
         xp_on_completion=100.0,
         trainable_units=[villager_type, envoy_type],
         population_supplied=10,
-        limit=1
+        limit=1,
     )
     bank_type = E.BuildingType(
-        "bank",
-        build_time=30.0,
-        wood_cost=350.0,
-        food_cost=350.0,
-        xp_on_completion=140.0,
-        coin_trickle=2.75,
-        limit=5
+        "bank", build_time=30.0, wood_cost=350.0, food_cost=350.0, xp_on_completion=140.0, coin_trickle=2.75, limit=5
     )
     house_type = E.BuildingType(
         "house",
@@ -63,7 +52,7 @@ def init_dutch_player_state() -> Player:
         coin_in_crates=300.0,
         building_types=building_types,
         buildings=[tc],
-        units=units
+        units=units,
     )
     # dutch have 20% coin gather bonus
     player_state.bonus_gather_coin_rate += 0.2 * player_state.base_gather_coin_rate
@@ -72,14 +61,12 @@ def init_dutch_player_state() -> Player:
 
 
 def init_player_state(civ_name: str) -> Player:
-    if civ_name == 'dutch':
+    if civ_name == "dutch":
         return init_dutch_player_state()
     else:
         raise Exception(f"Unsupported civ: {civ_name}")
 
 
 def init_game_state(civ_name: str) -> Game:
-    game_state = Game(
-        player=init_player_state(civ_name)
-    )
+    game_state = Game(player=init_player_state(civ_name))
     return game_state
