@@ -1,6 +1,6 @@
 import click
 
-from bob.simulation.actions import get_actions
+from bob.simulation.actions.core import get_actions
 from bob.simulation.initialize import init_game_state
 
 
